@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<body>
+    <h1 style="position: relative;">
+        Welcome to chess!!
+    </h1>
+
+
+    <div id="startpos" class="square" style="left: 100px; position: relative;"></div>
+
+    <button onclick="myfunction(document.getElementById('startpos'))">Start</button>
+
+    <script src="scripts.js"></script>
+    <img src="BlackKing.png" alt="BlackKing" onclick="thisfunction()" id="BlackKing" style="position: absolute;">
+
+
+    <script>
+
+        var last = "";
+        var lastColor = "silver";
+
+        function myfunction(element) {
+
+            console.log("i am here!!");
+
+            for (let i = 0; i < 8; i++) {
+                var top = i * 50;
+                for (let j = 0; j < 8; j++) {
+
+
+                    const square = document.createElement("div");
+                    const para = document.createTextNode(i + " " + j);
+
+
+                    square.style.position = "absolute";
+                    square.style.width = "50px";
+                    square.style.height = "50px";
+                    square.append(para);
+                    element.appendChild(square);
+                    square.style.color = "black";
+                    square.style.top = top + "px";
+                    square.style.left = j * 50 + "px";
+                    square.id = i + "," + j;
+
+                    square.onclick = function () { getCorodinate(this) };
+
+                    if (i % 2 == 0 && j % 2 == 0) {
+
+                        square.style.backgroundColor = "silver";
+                    }
+                    else if (i % 2 != 0 && j % 2 != 0) {
+
+                        square.style.backgroundColor = "silver";
+
+                    }
+
+
+                    else {
+
+                        square.style.backgroundColor = "gainsboro";
+                    }
+                }
+            }
+
+            element.style.color = "red";
+        }
+
+        function getCorodinate(element) {
+            if (last != "") {
+                last.style.backgroundColor = lastColor;
+            }
+            console.log(element);
+            lastColor = element.style.backgroundColor;
+            last = element;
+            element.style.backgroundColor = "red";
+
+        }
+
+        function writetoDatabase() {
+
+        }
+    </script>
+</body>
