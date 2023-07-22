@@ -11,9 +11,13 @@
     <button onclick="myfunction(document.getElementById('startpos'))">Start</button>
 
     <script src="scripts.js"></script>
-    <img src="BlackKing.png" alt="BlackKing" onclick="thisfunction()" id="BlackKing" style="position: absolute;">
+    <img src="BlackKing.png" alt="BlackKing" onclick="doSomeThing()" id="BlackKing" style="position: absolute;">
 
+    <textarea id="content" rows="4" cols="50" style="position: relative; top: 400px; left: 50px"></textarea>
+    <button id="writeButton" onclick="writeToFile()" style="position: relative; left: 100px;">
+        Write To File</button>
 
+    <p id="display" style="position: relative; left: 600px;">here i am </p>
     <script>
 
         var last = "";
