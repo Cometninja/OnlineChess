@@ -1,3 +1,7 @@
+let board = [,];
+
+
+
 function writeToFile() {
     const content = document.getElementById('content').value;
 
@@ -17,6 +21,7 @@ function writeToFile() {
             alert('Error Writing to File!!');
         });
     receiveData();
+    
 };
 
 function receiveData() {

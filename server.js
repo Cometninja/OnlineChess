@@ -4,7 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { connect } = require('http2');
 
+
 const app = express();
+let user = app.userMan
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -38,6 +40,7 @@ app.get("/readfile", (req, res) => {
 });
 
 app.listen(3000, '0.0.0.0', () => {
+
     console.log("Server is running on 3000");
 });
 
