@@ -1,5 +1,3 @@
-const { json } = require("body-parser");
-const { response } = require("express");
 
 let board = [,];
 
@@ -54,11 +52,9 @@ async function readChessBoard() {
     try {
         const response = await fetch("/test");
         const content = await response.json();
-        console.log("I am in the readChessBoard Function");
-        console.log(content);
         return new Promise((resolve) => {
             setTimeout(function () {
-                resolve("hello dan");
+                resolve(content);
             }, 1000);
         });
     } catch (error) {
@@ -68,12 +64,7 @@ async function readChessBoard() {
 }
 
 
-class chessboardtile {
-    constructor(_corodinate, _point, _containsPiece, _colour) {
 
-    }
-
-}
 
 function receiveDatas() {
     fetch("/readfiles")
@@ -86,5 +77,6 @@ function receiveDatas() {
             alert('Error Reading File!!!');
         });
 }
+
 
 window.readChessBoard = readChessBoard;
