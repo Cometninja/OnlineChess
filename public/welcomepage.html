@@ -18,6 +18,9 @@
         Write To File</button>
 
     <p id="display" style="position: relative; left: 600px;">here i am </p>
+
+    <button id="read data" onclick="readChessBoard()" style="position: relative; top: 100px; left: 800px">
+        readChessBoard</button>
     <script>
 
         var last = "";
@@ -25,7 +28,10 @@
 
         function myfunction(element) {
 
+            let fullboard = [];
+            let count = 0;
             console.log("i am here!!");
+            const board = readChessBoard();
 
             for (let i = 0; i < 8; i++) {
                 var top = i * 50;
@@ -34,6 +40,7 @@
 
                     const square = document.createElement("div");
                     const para = document.createTextNode(i + " " + j);
+
 
 
                     square.style.position = "absolute";
@@ -63,10 +70,17 @@
 
                         square.style.backgroundColor = "gainsboro";
                     }
+                    fullboard[count] = square;
+                    count++;
                 }
             }
 
-            element.style.color = "red";
+
+            let thing = readChessBoard();
+
+            console.log(thing);
+
+
         }
 
         function getCorodinate(element) {

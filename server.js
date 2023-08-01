@@ -29,6 +29,7 @@ app.post('/writeToFile', (req, res) => {
 });
 
 app.get("/readfile", (req, res) => {
+
     fs.readFile('data.txt', 'utf-8', (err, data) => {
         if (err) {
             console.error('Error Reading File', err);
@@ -51,3 +52,25 @@ app.on('connection', function (client) {
 function WriteToFile() {
     fs.writeFile("./testing.txt", "hello i am in a file");
 }
+
+app.get("/test", (req, res) => {
+    fs.readFile('C:\\Users\\danie\\Desktop\\OnlineChessJavaLogic\\JavaChess\\chessboard.json', 'utf-8', (err, data) => {
+        if (err) {
+            console.error('Error Reading File', err);
+            res.status(500).send('Error Reading File!!');
+        } else {
+            res.status(200).send(data);
+        }
+    });
+});
+app.get("/readfiles", (req, res) => {
+
+    fs.readFile('data.txt', 'utf-8', (err, data) => {
+        if (err) {
+            console.error('Error Reading File', err);
+            res.status(500).send('Error Reading File!!');
+        } else {
+            res.status(200).send(data);
+        }
+    });
+});
