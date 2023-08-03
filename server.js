@@ -54,7 +54,8 @@ function WriteToFile() {
 }
 
 app.get("/test", (req, res) => {
-    fs.readFile('C:\\Users\\danie\\Desktop\\OnlineChessJavaLogic\\JavaChess\\chessboard.json', 'utf-8', (err, data) => {
+
+    fs.readFile("C:\\Users\\danie\\Desktop\\OnlineChessJavaLogic\\serverSideNode.js\\OnlineChess\\JavaChess\\chessboard.json", 'utf-8', (err, data) => {
         if (err) {
             console.error('Error Reading File', err);
             res.status(500).send('Error Reading File!!');
@@ -71,6 +72,21 @@ app.get("/readfiles", (req, res) => {
             res.status(500).send('Error Reading File!!');
         } else {
             res.status(200).send(data);
+        }
+    });
+});
+
+app.post("/updateboard", (req, res) => {
+    const listoftiles = req.body; // Accessing the array directly from req.body
+    console.log(listoftiles);
+
+    fs.writeFile("game1.json", JSON.stringify(listoftiles), (err) => {
+        if (err) {
+            console.log("error writing to file: " + err);
+            res.status(500).send("Error writing to file!");
+        } else {
+            console.log("successful!!!");
+            res.send("Data successfully written to file!");
         }
     });
 });
